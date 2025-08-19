@@ -24,17 +24,16 @@ patch:
     label_font_point: 12
     font_face: PingFangSC
     font_point: 16
-    candidate_format: "%c %@"
+    candidate_format: "[label]. [candidate] "
     inline_preedit: true
 
   # 输入法切换
   app_options:
-    net.kovidgoyal.kitty:
+    com.mitchellh.ghostty:
       ascii_mode: true
       vim_mode: true
-    com.apple.Spotlight:
+    com.raycast.macos:
       ascii_mode: true
-
   # 皮肤主题
   preset_color_schemes:
     cactusnix_light:
