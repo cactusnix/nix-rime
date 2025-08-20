@@ -2,5 +2,6 @@
 /build/
 installation.yaml
 /rime_nix.userdb/
+/cn.userdb/
 /rime_nix_en.userdb/
 user.yaml

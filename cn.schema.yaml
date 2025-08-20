@@ -1,0 +1,66 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  name: 小鹤双拼
+  schema_id: cn
+  author:
+    - cactusnix
+  description:
+    - Simple And Pure
+  version: "0.1"
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [中, 英]
+
+engine:
+  processors:
+    - ascii_composer
+    - speller
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - abc_segmentor
+    - fallback_segmentor
+  translators:
+    - echo_translator
+    - script_translator
+  filters:
+    - uniquifier
+
+speller:
+  alphabet: abcdefghijklmnopqrstuvwxyz
+  delimiter: "'"
+  algebra:
+    - xform/in$/B/
+    - xform/ao$/C/
+    - xform/ai$/D/
+    - xform/en$/F/
+    - xform/eng$/G/
+    - xform/ang$/H/
+    - xform/^ch/I/
+    - xform/an$/J/
+    - xform/ing$|uai$/K/
+    - xform/[ui]ang$/L/
+    - xform/ian$/M/
+    - xform/iao$/N/
+    - xform/uo$/O/
+    - xform/ie/P/
+    - xform/iu$/Q/
+    - xform/uan$/R/
+    - xform/i?ong$/S/
+    - xform/[uv]e$/T/
+    - xform/^sh/U/
+    - xform/^zh/V/
+    - xform/ui$/V/
+    - xform/in$/W/
+    - xform/[ui]a$/X/
+    - xform/un$/Y/
+    - xform/ou$/Z/
+    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz
+
+translator:
+  dictionary: rime_nix

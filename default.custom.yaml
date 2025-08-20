@@ -4,7 +4,7 @@
 patch:
   # 方案列表
   schema_list:
-    - schema: rime_nix
+    - schema: cn
     - schema: rime_nix_en
 
   # 候选字个数
