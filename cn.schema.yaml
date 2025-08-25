@@ -19,48 +19,59 @@ engine:
   processors:
     - ascii_composer
     - speller
+    - punctuator
     - selector
     - navigator
     - express_editor
   segmentors:
     - abc_segmentor
+    - punct_segmentor
     - fallback_segmentor
   translators:
     - echo_translator
+    - punct_translator
     - script_translator
   filters:
     - uniquifier
 
+# TODO: Copy from rime repo. I don't know why.
 speller:
-  alphabet: abcdefghijklmnopqrstuvwxyz
-  delimiter: "'"
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
   algebra:
-    - xform/in$/B/
-    - xform/ao$/C/
-    - xform/ai$/D/
-    - xform/en$/F/
-    - xform/eng$/G/
-    - xform/ang$/H/
-    - xform/^ch/I/
-    - xform/an$/J/
-    - xform/ing$|uai$/K/
-    - xform/[ui]ang$/L/
-    - xform/ian$/M/
-    - xform/iao$/N/
-    - xform/uo$/O/
-    - xform/ie/P/
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+    - xform/^([aoe])(ng)?$/$1$1$2/
     - xform/iu$/Q/
+    - xform/(.)ei$/$1W/
     - xform/uan$/R/
-    - xform/i?ong$/S/
     - xform/[uv]e$/T/
-    - xform/^sh/U/
-    - xform/^zh/V/
-    - xform/ui$/V/
-    - xform/in$/W/
-    - xform/[ui]a$/X/
     - xform/un$/Y/
-    - xform/ou$/Z/
-    - xlit/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz
+    - xform/^sh/U/
+    - xform/^ch/I/
+    - xform/^zh/V/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/i?ong$/S/
+    - xform/ing$|uai$/K/
+    - xform/(.)ai$/$1D/
+    - xform/(.)en$/$1F/
+    - xform/(.)eng$/$1G/
+    - xform/[iu]ang$/L/
+    - xform/(.)ang$/$1H/
+    - xform/ian$/M/
+    - xform/(.)an$/$1J/
+    - xform/(.)ou$/$1Z/
+    - xform/[iu]a$/X/
+    - xform/iao$/N/
+    - xform/(.)ao$/$1C/
+    - xform/ui$/V/
+    - xform/in$/B/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
 
 translator:
-  dictionary: rime_nix
+  dictionary: cn
+
+punctuator:
+  import_preset: default
